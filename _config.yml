@@ -1,0 +1,30 @@
+title: Mathematical Articles
+description: Expository notes and articles in mathematics.
+author: Samuel
+url: "https://samhatescoding.github.io"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+permalink: /articles/:title/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

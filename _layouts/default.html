@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | escape }}">
+    <title>{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- MathJax renders LaTeX written between $...$ or $$...$$. -->
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/articles/' | relative_url }}">Articles</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="page-shell">
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.title }}. All Rights Reserved.</p>
+        <p>Article content may not be reproduced without permission.</p>
+      </div>
+    </footer>
+  </body>
+</html>
